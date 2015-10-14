@@ -398,7 +398,25 @@
 		display: block;
 	}
 	/*===========================================*/
-	
+	.animated { 
+    -webkit-animation-duration: 1s; 
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+} 
+
+@-webkit-keyframes rollIn { 
+    0% { opacity: 0; -webkit-transform: translateX(-100%) rotate(-120deg); } 
+    100% { opacity: 1; -webkit-transform: translateX(0px) rotate(0deg); } 
+} 
+@keyframes rollIn { 
+    0% { opacity: 0; transform: translateX(-100%) rotate(-120deg); } 
+    100% { opacity: 1; transform: translateX(0px) rotate(0deg); } 
+} 
+.rollIn { 
+    -webkit-animation-name: rollIn; 
+    animation-name: rollIn; 
+}
   label img
 	{
 		width: 78px;
@@ -559,15 +577,36 @@
 		 font-family: "CrimsonRoman";
 		 font-style: italic;
 		 color: #919090;
-		 padding: 0 10px;
+		 padding: 3px 15px;
 		 background-color: #dfdfdf;
 		 position: relative;
 		 display: inline-block;
 		 vertical-align: top;
+		 cursor: pointer;
 	}
-	label i
+	label[for="tys-1"]:before
 	{
-		padding: 7px;
+		height: 0;
+		width: 0;
+		content: "";
+		display: block;
+		border: 13px solid transparent;
+    border-right-color: #dfdfdf;
+    position: absolute;
+    top: 0%;
+    left: -47%;
+	}
+	label[for="tys-2"]:before
+	{
+		height: 0;
+		width: 0;
+		content: "";
+		display: block;
+		border: 13px solid transparent;
+    border-left-color: #dfdfdf;
+    position: absolute;
+    top: 0%;
+    left: 100%;
 	}
 	.works-title
 	{
@@ -589,6 +628,14 @@
 	{
 		display: none;
 	}
+	#tys-1:checked ~ .works-control label[for="tys-1"]:before
+	{
+		border-right-color: #79accd;
+	}
+	#tys-2:checked ~ .works-control label[for="tys-2"]:before
+	{
+		border-left-color: #79accd;
+	}
 	#tys-1:checked ~ .works-control label[for="tys-1"]
 	{
 		background-color: #79accd;
@@ -607,10 +654,12 @@
 	{
 		display: block;
 	}
+	
 }
 .contacts
 {
 	padding-top: 30px;
+	padding-bottom: 120px;
 	
 	.contacts-columns
 	{
@@ -639,6 +688,7 @@
 		 line-height: 17px;
 		 color: #7b7b7b;
 		 margin: 0;
+		 width: 203px;
 	}
 	.contacts-btn a
 	{
@@ -648,11 +698,20 @@
 		 color: #fff;
 		 padding: 4px 10px;
 		 text-decoration: none;
+		 position: relative;
 	
 	}
-	.contacts-btn i
+	.contacts-btn a:after
 	{
-		padding: 7px;
+		position: absolute;
+		height: 0;
+		width: 0;
+		content: "";
+		display: block;
+		border: 13px solid transparent;
+    border-left-color: #79accd;
+    top: 1%;
+    left: 100%;
 	}
 	.contacts-btn
 	{
@@ -696,6 +755,8 @@
 	{
 		text-align: right;
 		margin: 0;
+		padding-top: 15px;
+		position: relative;
 	}
 	.twitter-design a
 	{
@@ -705,6 +766,18 @@
 		 color: #79accd;
 		 margin: 0;
 		 display: inline-block;
+	}
+	.twitter-design a:after
+	{
+		position: absolute;
+		height: 0;
+		width: 0;
+		content: "";
+		display: block;
+		border: 16px solid transparent;
+    border-right-color: #e3e3e3;
+    top: -43%;
+    left: 74%;
 	}
 	.twitter-bg
 	{
